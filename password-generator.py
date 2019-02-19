@@ -57,7 +57,7 @@ def password_generator(file_name, word_list, password_purpose):
         
     final_password = ''.join(final_password_list)
     file = open(file_name, 'a')
-    file.write(password_purpose + ' password: ' + final_password)
+    file.write(password_purpose + ' password: ' + final_password + '\n')
     file.close()
     print('Pasword({}) generated for {} and stored in {}'.format(final_password, password_purpose, file_name))
     print()
@@ -82,6 +82,8 @@ def main():
     # loop controls if the generation proccess is continued
     while again == 'y' or again == 'Y':
         again = input('Generate another password?\ny/n? ')
+        if again =='n' or again == 'N':
+            break
         print()
         password_purpose = input("What is this password for?\n")
         print()
